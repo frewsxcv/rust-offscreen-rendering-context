@@ -4,7 +4,7 @@ use glx;
 use x11::xlib::*;
 use libc::*;
 use glx::types::{GLXContext, GLXDrawable, GLXFBConfig, GLXPixmap};
-use geom::{Size2D};
+use geom::Size2D;
 use super::utils::{create_offscreen_pixmap_backed_context};
 
 use platform::NativeGLContextMethods;
@@ -78,7 +78,7 @@ impl NativeGLContextMethods for NativeGLContext {
     fn create_headless() -> Result<NativeGLContext, &'static str> {
         // We create a context with a dummy size since in other platforms
         // a default framebuffer is not bound
-        create_offscreen_pixmap_backed_context(Size2D(16, 16))
+        create_offscreen_pixmap_backed_context(Size2D::new(16, 16))
     }
 
     #[inline(always)]
